@@ -12,9 +12,9 @@ bookdown::gitbook:
         <a href="https://bioinformaticsdotca.github.io/">
          <img src="img/bioinformatics_logo.png" width="90%" alt="bioinformatics.ca logo" style="display:block; margin-left:auto; margin-right:auto; margin-top:15px;">
          </a>
-        <li><center><strong><a href="./"><br>YOUR WORKSHOP NAME<br><br></a></strong></center></li>
+        <li><center><strong><a href="./"><br>Analysis Using R<br><br></a></strong></center></li>
         <a href="./">
-         <img src="img/MISSINGLOGO.PNG" width="70%" alt="WORKSHOP NAME logo" style="display:block; margin-left:auto; margin-right:auto; ">
+         <img src="img/CBW_AUR_Icon.png" width="70%" alt="Analysis Using R logo" style="display:block; margin-left:auto; margin-right:auto; ">
          </a>
         <br>
 
@@ -31,7 +31,7 @@ bookdown::gitbook:
 
 
     # YOU MUST REPLACE THE LINK BELOW - This is a link to your index.Rmd on your GitHub repo, which allows people to make suggestions
-    edit: https://github.com/cbw-dev/bookdown-template/blob/main/%s # Go to your index.Rmd page on GitHub, copy and paste the link to it, and add
+    edit: https://github.com/bioinformaticsdotca/AUR_2025/blob/main/%s # Go to your index.Rmd page on GitHub, copy and paste the link to it, and add
     # Steps:
     # 1. Go to your index.Rmd page on GitHub, Copy and paste the link to it.
     # 2. Copy and paste the link to it, excluding the "index.Rmd" ending.
