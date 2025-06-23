@@ -137,7 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <img src="images/bioinfologo_big.png">
-<li><a href="./">2024 CBW Analysis Using R Workshop</a></li>
+<li><a href="./">2025 CBW Analysis Using R Workshop</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
@@ -232,7 +232,6 @@ Dr. Pai integrates bulk tissue and single-cell genomics and computational metho
 <h3>Delaram Pouyabahar<a href="index.html#delaram-pouyabahar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Title TBA <br>
 Institute TBA<br></p>
-<p><img src="images/Chaitra_Sarathy.jpeg" ALIGN="right" hspace=25></p>
 </div>
 <div id="zoe-klein" class="section level3 unlisted unnumbered hasAnchor">
 <h3>Zoe Klein<a href="index.html#zoe-klein" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -279,10 +278,6 @@ Bioinformatics.ca<br>
 <pre><code>##  Checking for tidyverse ...</code></pre>
 <pre><code>##  Checking for clValid ...</code></pre>
 <pre><code>##  Checking for rgl ...</code></pre>
-<pre><code>## Warning in rgl.init(initValue, onlyNULL):
-## RGL: unable to open X11 display</code></pre>
-<pre><code>## Warning: &#39;rgl.init&#39; failed, running with
-## &#39;rgl.useNULL = TRUE&#39;.</code></pre>
 <pre><code>##  Checking for RColorBrewer ...</code></pre>
 <pre><code>##  Checking for corrplot ...</code></pre>
 <pre><code>##  Checking for ClusterR ...</code></pre>
@@ -292,15 +287,15 @@ Bioinformatics.ca<br>
 <pre><code>##  Checking for mlbench ...</code></pre>
 <pre><code>##  Checking for plotrix ...</code></pre>
 <pre><code>##  Checking for factoextra ...</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="index.html#cb16-1" tabindex="-1"></a>biocPkg <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;edgeR&quot;</span>,<span class="st">&quot;bladderbatch&quot;</span>,<span class="st">&quot;airway&quot;</span>)</span>
-<span id="cb16-2"><a href="index.html#cb16-2" tabindex="-1"></a><span class="cf">for</span> (cur <span class="cf">in</span> biocPkg){</span>
-<span id="cb16-3"><a href="index.html#cb16-3" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(cur, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) BiocManager<span class="sc">::</span><span class="fu">install</span>(cur)</span>
-<span id="cb16-4"><a href="index.html#cb16-4" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="index.html#cb14-1" tabindex="-1"></a>biocPkg <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;edgeR&quot;</span>,<span class="st">&quot;bladderbatch&quot;</span>,<span class="st">&quot;airway&quot;</span>)</span>
+<span id="cb14-2"><a href="index.html#cb14-2" tabindex="-1"></a><span class="cf">for</span> (cur <span class="cf">in</span> biocPkg){</span>
+<span id="cb14-3"><a href="index.html#cb14-3" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(cur, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) BiocManager<span class="sc">::</span><span class="fu">install</span>(cur)</span>
+<span id="cb14-4"><a href="index.html#cb14-4" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="download-example-data" class="section level3 unnumbered hasAnchor">
 <h3>Download example data<a href="index.html#download-example-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
-<li>Download data for the workshop: <a href="https://drive.google.com/file/d/1DUSqDM1DGQaqPOk1iL8JxfU0TgCr-4MR/view?usp=sharing">AUR2024_data.zip</a>.</li>
+<li>Download data for the workshop: <a href="https://drive.google.com/file/d/1DUSqDM1DGQaqPOk1iL8JxfU0TgCr-4MR/view?usp=sharing">AUR2025_data.zip</a>.</li>
 <li>Move the zip file to your working directory (usually under “/Users/yourname”).</li>
 <li>Unzip the file. You should see a folder with 4 files in it.</li>
 </ol>

@@ -31,10 +31,6 @@ Dr. Pai integrates bulk tissue and single-cell genomics and computational method
 Title TBA <br>
 Institute TBA<br>
 
-<img src="images/Chaitra_Sarathy.jpeg" ALIGN="right" hspace=25>
-
-
-
 ### Zoe Klein {.unlisted .unnumbered}
 <img src="images/ZoeKlein.png" ALIGN="right" hspace=25 width=200 height=200 style="object-fit: cover;">
 PhD. Candidate<br>
@@ -88,14 +84,13 @@ for (cur in biocPkg){
 
 ### Download example data {-}
 
-1. Download data for the workshop: [AUR2024_data.zip](https://drive.google.com/file/d/1DUSqDM1DGQaqPOk1iL8JxfU0TgCr-4MR/view?usp=sharing).
+1. Download data for the workshop: [AUR2025_data.zip](https://drive.google.com/file/d/1DUSqDM1DGQaqPOk1iL8JxfU0TgCr-4MR/view?usp=sharing).
 2. Move the zip file to your working directory (usually under "/Users/yourname"). 
 3. Unzip the file. You should see a folder with 4 files in it.
 
 # Lecture slides {-}
 
-* [Module 1: Exploratory Data Analysis and Clustering](https://github.com/RealPaiLab/CBW_AUR2024/blob/main/book/lectures/AUR_2024_Module1_EDA.pdf)
-* [Module 2: Dimensionality reduction for visualization and analysis](https://github.com/RealPaiLab/CBW_AUR2023/blob/main/book/lectures/AUR_2023_Module2_DimensionReduction.pdf)
-* [Module 3: Generalized linear models](https://github.com/RealPaiLab/CBW_AUR2024/blob/main/book/lectures/AUR_2024_Module3_GLM.pdf)
-* [Module 4: Multiple hypothesis testing with RNA-seq differential expression analysis](https://github.com/RealPaiLab/CBW_AUR2024/blob/main/book/lectures/AUR_2024_Module4_RNAseq.pdf)
-
+* Module 1: Exploratory Data Analysis and Clustering
+* Module 2: Dimensionality reduction for visualization and analysis
+* Module 3: Generalized linear models
+* Module 4: Multiple hypothesis testing with RNA-seq differential expression analysis
