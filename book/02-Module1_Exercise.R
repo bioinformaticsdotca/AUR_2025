@@ -1,0 +1,69 @@
+## ----class.source="codeblock",eval=TRUE----
+library(MASS)
+data(crabs)
+
+
+## ----class.source="codeblock",eval=TRUE----
+?crabs
+head(crabs)
+
+
+## ----class.source="codeblock",eval=TRUE----
+crabs_meas <-  crabs[,c("FL","RW","CL","CW","BD")]
+
+
+## ----class.source="codeblock",eval=TRUE----
+c_dist <- dist(crabs_meas)
+c_hclust <- hclust(c_dist)
+plot(c_hclust)
+
+
+## ----class.source="codeblock",eval=TRUE----
+c_clusters = cutree(c_hclust,k = 2)
+
+
+## ----class.source="codeblock",eval=TRUE----
+pairs(
+    crabs_meas, 
+    col = c("orchid","forestgreen")[c_clusters]
+)
+
+pairs(
+    crabs_meas, 
+    col = c("orchid","forestgreen")[factor(crabs$sp)]
+)
+
+pairs(
+    crabs_meas, 
+    col = c("orchid","forestgreen")[factor(crabs$sex)]
+)
+
+
+## ----class.source="codeblock",eval=TRUE----
+h <- hclust(dist(crabs_meas),method="ward.D2")
+c2 <- cutree(h,k=2)
+
+hclust_fun <- function(x){
+    f <- hclust(x, method = "ward.D2");
+    return(f)
+}
+
+library(RColorBrewer)
+heatmap(
+    as.matrix(crabs_meas),
+    hclustfun = hclust_fun,
+    col = brewer.pal("Blues",n=8),
+    RowSideColors = c("pink","brown")[c2], 
+    ColSideColors = rep("green",5)
+)
+
+
+## ----class.source="codeblock",eval=TRUE----
+heatmap(
+    as.matrix(crabs_meas),
+    hclustfun = hclust_fun,
+    col = brewer.pal("Blues",n=8),
+    RowSideColors = c("pink","brown")[factor(crabs$sex)], 
+    ColSideColors = rep("green",5)
+)
+

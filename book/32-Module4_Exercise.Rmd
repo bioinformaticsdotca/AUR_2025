@@ -1,0 +1,108 @@
+# Module 4: Bonus Exercise Results {-}
+
+```{r, class.source="codeblock",eval=TRUE}
+if (!requireNamespace("yeastRNASeq", quietly = TRUE)) 
+  BiocManager::install("yeastRNASeq")
+
+library(yeastRNASeq)
+
+data(geneLevelData)
+
+# only keep genes with cpm > 25 in more than two samples
+
+# table of TRUE/FALSE values
+genes_passing_cutoff <- cpm(geneLevelData) > 25 
+
+# For each gene, add up how many samples it is TRUE in (rowSums())
+# Then only keep those strictly greater than 2.
+genes_keep <- rowSums(genes_passing_cutoff) > 2
+
+# Finally subset the data
+filtered <- geneLevelData[genes_keep,]
+
+# How many genes pass this threshold?
+str(filtered)
+```
+
+```{r, class.source="codeblock",eval=TRUE}
+#  as.matrix(filtered): the count data in the right class
+# phenoData: The sample information
+
+group <- factor(rep(c("Mut", "WT"),each=2), 
+    levels = c("WT","Mut")) # we tell R to use "WT" as the reference
+y <- DGEList(as.matrix(filtered), 
+           group = group)  
+
+## matrix of experimental design 
+mod = model.matrix(~group, y)
+
+
+## Normalize data
+y <- calcNormFactors(y, method = "upperquartile")
+y <- estimateDisp(y, mod)
+
+fit = glmFit(y, mod)
+lrt = glmLRT(fit, coef = 2)
+diffEx2 <- decideTestsDGE(lrt, 
+    adjust.method="BH", 
+    p.value=0.05
+)
+table(diffEx2)
+```
+
+```{r, class.source="codeblock",eval=TRUE}
+DEGS = topTags(lrt, n=nrow(y))$table
+```
+
+```{r, class.source="codeblock",eval=TRUE}
+## check out differentially expressed genes
+head(DEGS)
+
+DEGS_sig = DEGS[DEGS$FDR < 0.05,]
+head(DEGS_sig)
+dim(DEGS_sig)
+```
+
+Now merge the `DEG` and table with the table with the table that has the up/downregulated status:
+
+```{r, class.source="codeblock",eval=TRUE}
+# needed to use merge function
+diffEx2 <- as.data.frame(diffEx2) 
+# give column more intuitive name
+colnames(diffEx2)[1] <- "gene_status"
+
+# add the common "gene" column to merge the two tables
+diffEx2$gene <- rownames(diffEx2)
+DEGS$gene <- rownames(DEGS)
+
+mega <- merge(x = DEGS, y = diffEx2, by="gene")
+```
+
+Assign the column name for gene status:
+
+```{r, class.source="codeblock",eval=TRUE}
+is_sig <- rep("n.s.", nrow(mega)) # default is ns
+is_sig[which(mega$gene_status > 0)] <- "Upregulated"
+is_sig[which(mega$gene_status < 0)] <- "Downregulated"
+
+# use levels() to tell R how to order the categorical 
+# variables. Downregulated = 1, n.s.=2, and Upregulated=3. 
+# By default, R orders categorical variables alphabetically,
+# which may not make sense!
+mega$is_sig <- factor(is_sig, 
+    levels = c("Downregulated","n.s.","Upregulated"))
+```
+
+Finally create the volcano plot:
+
+```{r,class.source="codeblock",eval=TRUE}
+p1 <- ggplot(mega, 
+    aes(x = logFC, y = -log10(FDR))) + # -log10 conversion  
+    geom_point(aes(color=is_sig),size = 2/5) +  
+    xlab(expression("log"[2]*"FC")) + 
+    ylab(expression("-log"[10]*"FDR")) + 
+    scale_color_manual(
+        values = c("dodgerblue3", "gray50", "firebrick3")) 
+
+p1
+```
