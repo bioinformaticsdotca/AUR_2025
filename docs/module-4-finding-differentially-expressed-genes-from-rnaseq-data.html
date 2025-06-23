@@ -20,7 +20,7 @@
   <meta name="twitter:description" content="Principles of exploratory data analysis, RNAseq differential expression, and generalized linear models" />
   
 
-<meta name="author" content="Instructors: Shraddha Pai, Chaitra Sarathy" />
+<meta name="author" content="Instructors: Shraddha Pai, Delaram Pouyabahar" />
 
 
 
@@ -221,8 +221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 “Using RNA-Seq, a high-throughput sequencing method, we characterized transcriptomic changes in four primary human ASM cell lines that were treated with dexamethasone - a potent synthetic glucocorticoid (1 micromolar for 18 hours).”</p>
 <p>Let’s load the data</p>
 <div class="sourceCode" id="cb299"><pre class="sourceCode r codeblock"><code class="sourceCode r"><span id="cb299-1"><a href="module-4-finding-differentially-expressed-genes-from-rnaseq-data.html#cb299-1" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(airway))</span></code></pre></div>
-<pre><code>## Warning: package
-## &#39;GenomeInfoDb&#39; was built
+<pre><code>## Warning: package &#39;GenomeInfoDb&#39; was built
 ## under R version 4.3.3</code></pre>
 <div class="sourceCode" id="cb301"><pre class="sourceCode r codeblock"><code class="sourceCode r"><span id="cb301-1"><a href="module-4-finding-differentially-expressed-genes-from-rnaseq-data.html#cb301-1" tabindex="-1"></a><span class="fu">data</span>(airway)</span></code></pre></div>
 <p>These data happen to be in a Bioconductor-specific format, so we use the special functions, <code>assay()</code> and <code>colData()</code> to get the expression data and sample information.</p>
@@ -247,88 +246,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb304-5"><a href="module-4-finding-differentially-expressed-genes-from-rnaseq-data.html#cb304-5" tabindex="-1"></a>    )</span></code></pre></div>
 <p>Remove low-count genes: To filter low count genes, we’re going to use a normalized count measure called <code>cpm</code> (counts per million). We are going to keep genes with 100 or greater counts per million for at least two samples:</p>
 <div class="sourceCode" id="cb305"><pre class="sourceCode r codeblock"><code class="sourceCode r"><span id="cb305-1"><a href="module-4-finding-differentially-expressed-genes-from-rnaseq-data.html#cb305-1" tabindex="-1"></a><span class="fu">head</span>(dge<span class="sc">$</span>counts)</span></code></pre></div>
-<pre><code>##                 SRR1039508
-## ENSG00000000003        679
-## ENSG00000000005          0
-## ENSG00000000419        467
-## ENSG00000000457        260
-## ENSG00000000460         60
-## ENSG00000000938          0
-##                 SRR1039509
-## ENSG00000000003        448
-## ENSG00000000005          0
-## ENSG00000000419        515
-## ENSG00000000457        211
-## ENSG00000000460         55
-## ENSG00000000938          0
-##                 SRR1039512
-## ENSG00000000003        873
-## ENSG00000000005          0
-## ENSG00000000419        621
-## ENSG00000000457        263
-## ENSG00000000460         40
-## ENSG00000000938          2
-##                 SRR1039513
-## ENSG00000000003        408
-## ENSG00000000005          0
-## ENSG00000000419        365
-## ENSG00000000457        164
-## ENSG00000000460         35
-## ENSG00000000938          0
-##                 SRR1039516
-## ENSG00000000003       1138
-## ENSG00000000005          0
-## ENSG00000000419        587
-## ENSG00000000457        245
-## ENSG00000000460         78
-## ENSG00000000938          1
-##                 SRR1039517
-## ENSG00000000003       1047
-## ENSG00000000005          0
-## ENSG00000000419        799
-## ENSG00000000457        331
-## ENSG00000000460         63
-## ENSG00000000938          0
-##                 SRR1039520
-## ENSG00000000003        770
-## ENSG00000000005          0
-## ENSG00000000419        417
-## ENSG00000000457        233
-## ENSG00000000460         76
-## ENSG00000000938          0
-##                 SRR1039521
-## ENSG00000000003        572
-## ENSG00000000005          0
-## ENSG00000000419        508
-## ENSG00000000457        229
-## ENSG00000000460         60
-## ENSG00000000938          0</code></pre>
+<pre><code>##                 SRR1039508 SRR1039509
+## ENSG00000000003        679        448
+## ENSG00000000005          0          0
+## ENSG00000000419        467        515
+## ENSG00000000457        260        211
+## ENSG00000000460         60         55
+## ENSG00000000938          0          0
+##                 SRR1039512 SRR1039513
+## ENSG00000000003        873        408
+## ENSG00000000005          0          0
+## ENSG00000000419        621        365
+## ENSG00000000457        263        164
+## ENSG00000000460         40         35
+## ENSG00000000938          2          0
+##                 SRR1039516 SRR1039517
+## ENSG00000000003       1138       1047
+## ENSG00000000005          0          0
+## ENSG00000000419        587        799
+## ENSG00000000457        245        331
+## ENSG00000000460         78         63
+## ENSG00000000938          1          0
+##                 SRR1039520 SRR1039521
+## ENSG00000000003        770        572
+## ENSG00000000005          0          0
+## ENSG00000000419        417        508
+## ENSG00000000457        233        229
+## ENSG00000000460         76         60
+## ENSG00000000938          0          0</code></pre>
 <p>Look at counts per million using <code>cpm</code>:</p>
 <div class="sourceCode" id="cb307"><pre class="sourceCode r codeblock"><code class="sourceCode r"><span id="cb307-1"><a href="module-4-finding-differentially-expressed-genes-from-rnaseq-data.html#cb307-1" tabindex="-1"></a><span class="fu">cpm</span>(dge)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
-<pre><code>##                 SRR1039508
-## ENSG00000000003  32.900521
-## ENSG00000000005   0.000000
-## ENSG00000000419  22.628193
-## ENSG00000000457  12.598138
-## ENSG00000000460   2.907263
-##                 SRR1039509
-## ENSG00000000003  23.817776
-## ENSG00000000005   0.000000
-## ENSG00000000419  27.379809
-## ENSG00000000457  11.217747
-## ENSG00000000460   2.924057
-##                 SRR1039512
-## ENSG00000000003  34.439705
-## ENSG00000000005   0.000000
-## ENSG00000000419  24.498347
-## ENSG00000000457  10.375306
-## ENSG00000000460   1.577993
-##                 SRR1039513
-## ENSG00000000003  26.906868
-## ENSG00000000005   0.000000
-## ENSG00000000419  24.071095
-## ENSG00000000457  10.815506
-## ENSG00000000460   2.308187
+<pre><code>##                 SRR1039508 SRR1039509
+## ENSG00000000003  32.900521  23.817776
+## ENSG00000000005   0.000000   0.000000
+## ENSG00000000419  22.628193  27.379809
+## ENSG00000000457  12.598138  11.217747
+## ENSG00000000460   2.907263   2.924057
+##                 SRR1039512 SRR1039513
+## ENSG00000000003  34.439705  26.906868
+## ENSG00000000005   0.000000   0.000000
+## ENSG00000000419  24.498347  24.071095
+## ENSG00000000457  10.375306  10.815506
+## ENSG00000000460   1.577993   2.308187
 ##                 SRR1039516
 ## ENSG00000000003  46.546998
 ## ENSG00000000005   0.000000
@@ -387,50 +346,28 @@ or a full model (treatment effect is non-zero)</li>
 <div class="sourceCode" id="cb318"><pre class="sourceCode r codeblock"><code class="sourceCode r"><span id="cb318-1"><a href="module-4-finding-differentially-expressed-genes-from-rnaseq-data.html#cb318-1" tabindex="-1"></a>tt <span class="ot">&lt;-</span> <span class="fu">topTags</span>(diffEx, <span class="at">n=</span><span class="dv">10</span>)</span>
 <span id="cb318-2"><a href="module-4-finding-differentially-expressed-genes-from-rnaseq-data.html#cb318-2" tabindex="-1"></a>tt</span></code></pre></div>
 <pre><code>## Coefficient:  groupuntrt 
-##                     logFC
-## ENSG00000152583 -4.512108
-## ENSG00000178695  2.592010
-## ENSG00000120129 -2.857535
-## ENSG00000189221 -3.213455
-## ENSG00000125148 -2.110664
-## ENSG00000162614 -1.938280
-## ENSG00000101347 -3.764745
-## ENSG00000096060 -3.849662
-## ENSG00000134686 -1.294763
-## ENSG00000166741 -2.072008
-##                   logCPM
-## ENSG00000152583 5.950547
-## ENSG00000178695 7.433587
-## ENSG00000120129 7.727638
-## ENSG00000189221 7.183776
-## ENSG00000125148 7.835949
-## ENSG00000162614 8.397283
-## ENSG00000101347 9.620058
-## ENSG00000096060 7.313033
-## ENSG00000134686 7.426574
-## ENSG00000166741 8.859215
-##                       LR
-## ENSG00000152583 190.5712
-## ENSG00000178695 171.7187
-## ENSG00000120129 167.2022
-## ENSG00000189221 162.3746
-## ENSG00000125148 156.1280
-## ENSG00000162614 135.2052
-## ENSG00000101347 128.9686
-## ENSG00000096060 123.8841
-## ENSG00000134686 121.0663
-## ENSG00000166741 114.0478
-##                       PValue
-## ENSG00000152583 2.385925e-43
-## ENSG00000178695 3.117449e-39
-## ENSG00000120129 3.021823e-38
-## ENSG00000189221 3.426477e-37
-## ENSG00000125148 7.937896e-36
-## ENSG00000162614 2.977497e-31
-## ENSG00000101347 6.889897e-30
-## ENSG00000096060 8.930961e-29
-## ENSG00000134686 3.695702e-28
-## ENSG00000166741 1.272045e-26
+##                     logFC   logCPM
+## ENSG00000152583 -4.512108 5.950547
+## ENSG00000178695  2.592010 7.433587
+## ENSG00000120129 -2.857535 7.727638
+## ENSG00000189221 -3.213455 7.183776
+## ENSG00000125148 -2.110664 7.835949
+## ENSG00000162614 -1.938280 8.397283
+## ENSG00000101347 -3.764745 9.620058
+## ENSG00000096060 -3.849662 7.313033
+## ENSG00000134686 -1.294763 7.426574
+## ENSG00000166741 -2.072008 8.859215
+##                       LR       PValue
+## ENSG00000152583 190.5712 2.385925e-43
+## ENSG00000178695 171.7187 3.117449e-39
+## ENSG00000120129 167.2022 3.021823e-38
+## ENSG00000189221 162.3746 3.426477e-37
+## ENSG00000125148 156.1280 7.937896e-36
+## ENSG00000162614 135.2052 2.977497e-31
+## ENSG00000101347 128.9686 6.889897e-30
+## ENSG00000096060 123.8841 8.930961e-29
+## ENSG00000134686 121.0663 3.695702e-28
+## ENSG00000166741 114.0478 1.272045e-26
 ##                          FDR
 ## ENSG00000152583 4.977039e-40
 ## ENSG00000178695 3.251499e-36

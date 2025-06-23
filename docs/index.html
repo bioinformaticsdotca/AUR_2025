@@ -20,7 +20,7 @@
   <meta name="twitter:description" content="Principles of exploratory data analysis, RNAseq differential expression, and generalized linear models" />
   
 
-<meta name="author" content="Instructors: Shraddha Pai, Chaitra Sarathy" />
+<meta name="author" content="Instructors: Shraddha Pai, Delaram Pouyabahar" />
 
 
 
@@ -213,12 +213,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Analysis Using R</h1>
 <h2 class="subtitle"><em>Canadian Bioinformatics Workshop</em></h2>
-<p class="author"><em>Instructors: Shraddha Pai, Chaitra Sarathy</em></p>
-<p class="date"><em>last modified 2025-06-22</em></p>
+<p class="author"><em>Instructors: Shraddha Pai, Delaram Pouyabahar</em></p>
+<p class="date"><em>last modified 2025-06-23</em></p>
 </div>
 <div id="welcome" class="section level1 unnumbered hasAnchor">
 <h1>Welcome<a href="index.html#welcome" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Welcome to <a href="https://bioinformatics.ca/workshops-all/2024-analysis-using-r/">Analysis Using R</a> 2024.</p>
+<p>Welcome to Analysis Using R 2025.</p>
 <div id="meet-your-faculty" class="section level2 unnumbered hasAnchor">
 <h2>Meet your Faculty<a href="index.html#meet-your-faculty" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="shraddha-pai" class="section level3 unlisted unnumbered hasAnchor">
@@ -226,24 +226,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Investigator I, OICR<br>
 Assistant Professor, University of Toronto</p>
 <p><img src="images/ShraddhaPai.jpeg" width=200 height=150 ALIGN="right"  hspace=25>
-Dr. Pai integrates genomics and computational methods to advance precision medicine. Her previous work involves DNA methylome-based biomarker discovery in psychosis, and building machine learning algorithms for patient classification from multi-modal data. The <a href="https://www.shraddhapailab.com/">Pai Lab at the Ontario Institute for Cancer Research</a> focuses on biomarker discovery for detection, diagnosis and prognosis in brain cancers and other brain-related disorders.</p>
+Dr. Pai integrates bulk tissue and single-cell genomics and computational methods to advance precision medicine. The <a href="https://www.shraddhapailab.com/">Pai Lab at the Ontario Institute for Cancer Research</a> focuses on biomarker discovery for detection, diagnosis and prognosis in brain cancers and other brain-related disorders.</p>
 </div>
-<div id="chaitra-sarathy" class="section level3 unlisted unnumbered hasAnchor">
-<h3>Chaitra Sarathy<a href="index.html#chaitra-sarathy" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Bioinformatics Specialist <br>
-Krembil Research Institute<br></p>
-<p><img src="images/Chaitra_Sarathy.jpeg" ALIGN="right" hspace=25>
-Dr. Sarathy is a computational biologist with industry experience in software development.
-Her previous research centered around developing multi-scale mathematical models of human systems to characterise biochemical changes in obesity. In addition, she has developed methods based on machine learning and multi-omics integration to identify drug targets in cancer and stratify patients for clinical trials. She currently focusses on characterising genetic malfunctions in neurological diseases.</p>
-</div>
-<div id="ian-cheong" class="section level3 unlisted unnumbered hasAnchor">
-<h3>Ian Cheong<a href="index.html#ian-cheong" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="images/IanCheong.jpg" ALIGN="right" hspace=25 width=200 height=200 style="object-fit: cover;">
-MSc. Candidate<br>
-University of Toronto</p>
-<p>Ian is a Master’s level candidate in the Department of Medical Biophysics at the University of Toronto. His thesis work in the Pai lab involves analysis of single-cell transcriptomes to find the link between brain development and the development of childhood brain cancer.
-  <br>
-  <br></p>
+<div id="delaram-pouyabahar" class="section level3 unlisted unnumbered hasAnchor">
+<h3>Delaram Pouyabahar<a href="index.html#delaram-pouyabahar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Title TBA <br>
+Institute TBA<br></p>
+<p><img src="images/Chaitra_Sarathy.jpeg" ALIGN="right" hspace=25></p>
 </div>
 <div id="zoe-klein" class="section level3 unlisted unnumbered hasAnchor">
 <h3>Zoe Klein<a href="index.html#zoe-klein" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -253,9 +242,6 @@ University of Toronto</p>
 <p>Zoe is a PhD level candidate in the Department of Molecular Genetics at the University of Toronto. Her thesis work in the Reimand lab involves using computational tools to investigate the role of non-coding RNA in cancer.
   <br>
   <br></p>
-</div>
-<div id="amin-nooranikhojasteh" class="section level3 unlisted unnumbered hasAnchor">
-<h3>Amin Nooranikhojasteh<a href="index.html#amin-nooranikhojasteh" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 <div id="nia-hughes" class="section level3 unlisted unnumbered hasAnchor">
 <h3>Nia Hughes<a href="index.html#nia-hughes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -293,10 +279,10 @@ Bioinformatics.ca<br>
 <pre><code>##  Checking for tidyverse ...</code></pre>
 <pre><code>##  Checking for clValid ...</code></pre>
 <pre><code>##  Checking for rgl ...</code></pre>
-<pre><code>## Warning in rgl.init(initValue, onlyNULL): RGL: unable to open
-## X11 display</code></pre>
-<pre><code>## Warning: &#39;rgl.init&#39; failed, running with &#39;rgl.useNULL =
-## TRUE&#39;.</code></pre>
+<pre><code>## Warning in rgl.init(initValue, onlyNULL):
+## RGL: unable to open X11 display</code></pre>
+<pre><code>## Warning: &#39;rgl.init&#39; failed, running with
+## &#39;rgl.useNULL = TRUE&#39;.</code></pre>
 <pre><code>##  Checking for RColorBrewer ...</code></pre>
 <pre><code>##  Checking for corrplot ...</code></pre>
 <pre><code>##  Checking for ClusterR ...</code></pre>

@@ -20,7 +20,7 @@
   <meta name="twitter:description" content="Principles of exploratory data analysis, RNAseq differential expression, and generalized linear models" />
   
 
-<meta name="author" content="Instructors: Shraddha Pai, Chaitra Sarathy" />
+<meta name="author" content="Instructors: Shraddha Pai, Delaram Pouyabahar" />
 
 
 
@@ -267,36 +267,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb333"><pre class="sourceCode r codeblock"><code class="sourceCode r"><span id="cb333-1"><a href="module-4-bonus-exercise-results.html#cb333-1" tabindex="-1"></a>DEGS <span class="ot">=</span> <span class="fu">topTags</span>(lrt, <span class="at">n=</span><span class="fu">nrow</span>(y))<span class="sc">$</span>table</span></code></pre></div>
 <div class="sourceCode" id="cb334"><pre class="sourceCode r codeblock"><code class="sourceCode r"><span id="cb334-1"><a href="module-4-bonus-exercise-results.html#cb334-1" tabindex="-1"></a><span class="do">## check out differentially expressed genes</span></span>
 <span id="cb334-2"><a href="module-4-bonus-exercise-results.html#cb334-2" tabindex="-1"></a><span class="fu">head</span>(DEGS)</span></code></pre></div>
-<pre><code>##            logFC   logCPM
-## snR10   6.268938 11.39811
-## YGL088W 6.195050 11.32542
-## snR18   6.183593 10.98786
-## snR35   6.078012 10.50997
-## snR9    5.769437 11.19751
-## snR8    5.562905 10.34273
-##               LR PValue FDR
-## snR10   4545.409      0   0
-## YGL088W 4314.679      0   0
-## snR18   3453.878      0   0
-## snR35   2221.059      0   0
-## snR9    3846.696      0   0
-## snR8    2140.791      0   0</code></pre>
+<pre><code>##            logFC   logCPM       LR PValue
+## snR10   6.268938 11.39811 4545.409      0
+## YGL088W 6.195050 11.32542 4314.679      0
+## snR18   6.183593 10.98786 3453.878      0
+## snR35   6.078012 10.50997 2221.059      0
+## snR9    5.769437 11.19751 3846.696      0
+## snR8    5.562905 10.34273 2140.791      0
+##         FDR
+## snR10     0
+## YGL088W   0
+## snR18     0
+## snR35     0
+## snR9      0
+## snR8      0</code></pre>
 <div class="sourceCode" id="cb336"><pre class="sourceCode r codeblock"><code class="sourceCode r"><span id="cb336-1"><a href="module-4-bonus-exercise-results.html#cb336-1" tabindex="-1"></a>DEGS_sig <span class="ot">=</span> DEGS[DEGS<span class="sc">$</span>FDR <span class="sc">&lt;</span> <span class="fl">0.05</span>,]</span>
 <span id="cb336-2"><a href="module-4-bonus-exercise-results.html#cb336-2" tabindex="-1"></a><span class="fu">head</span>(DEGS_sig)</span></code></pre></div>
-<pre><code>##            logFC   logCPM
-## snR10   6.268938 11.39811
-## YGL088W 6.195050 11.32542
-## snR18   6.183593 10.98786
-## snR35   6.078012 10.50997
-## snR9    5.769437 11.19751
-## snR8    5.562905 10.34273
-##               LR PValue FDR
-## snR10   4545.409      0   0
-## YGL088W 4314.679      0   0
-## snR18   3453.878      0   0
-## snR35   2221.059      0   0
-## snR9    3846.696      0   0
-## snR8    2140.791      0   0</code></pre>
+<pre><code>##            logFC   logCPM       LR PValue
+## snR10   6.268938 11.39811 4545.409      0
+## YGL088W 6.195050 11.32542 4314.679      0
+## snR18   6.183593 10.98786 3453.878      0
+## snR35   6.078012 10.50997 2221.059      0
+## snR9    5.769437 11.19751 3846.696      0
+## snR8    5.562905 10.34273 2140.791      0
+##         FDR
+## snR10     0
+## YGL088W   0
+## snR18     0
+## snR35     0
+## snR9      0
+## snR8      0</code></pre>
 <div class="sourceCode" id="cb338"><pre class="sourceCode r codeblock"><code class="sourceCode r"><span id="cb338-1"><a href="module-4-bonus-exercise-results.html#cb338-1" tabindex="-1"></a><span class="fu">dim</span>(DEGS_sig)</span></code></pre></div>
 <pre><code>## [1] 2343    5</code></pre>
 <p>Now merge the <code>DEG</code> and table with the table with the table that has the up/downregulated status:</p>
