@@ -43,7 +43,7 @@ y <- estimateDisp(y, mod)
 
 fit = glmFit(y, mod)
 lrt = glmLRT(fit, coef = 2)
-diffEx2 <- decideTestsDGE(lrt, 
+diffEx2 <- decideTests(lrt, 
     adjust.method="BH", 
     p.value=0.05
 )

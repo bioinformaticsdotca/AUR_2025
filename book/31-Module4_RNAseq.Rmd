@@ -166,9 +166,9 @@ qqplot(
 abline(0,1,col="red")
 ```
 
-Now let's call differentially expressed genes using the `decideTestDGE()` function and use `summary()` to see how many genes are upregulated (value `+1`), downregulated (value `-1`) and not called as changed (value `0`)
+Now let's call differentially expressed genes using the `decideTests()` function and use `summary()` to see how many genes are upregulated (value `+1`), downregulated (value `-1`) and not called as changed (value `0`)
 ```{r, decide-tests-dge, class.source="codeblock",eval=TRUE}
-diffEx2 <- decideTestsDGE(diffEx, 
+diffEx2 <- decideTests(diffEx, 
     adjust.method="BH", 
     p.value=0.05
 )
