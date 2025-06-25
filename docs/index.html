@@ -377,17 +377,16 @@ Bioinformatics.ca<br>
 <pre><code>##  Checking for tidyverse ...</code></pre>
 <pre><code>##  Checking for clValid ...</code></pre>
 <pre><code>##  Checking for rgl ...</code></pre>
-<pre><code>## Registered S3 methods overwritten by &#39;rgl&#39;:
-##   method               from
-##   knit_print.rglId         
-##   knit_print.rglOpen3d     
-##   sew.rglRecordedplot</code></pre>
 <pre><code>## Error in dyn.load(dynlib &lt;- getDynlib(dir)) : 
 ##   unable to load shared object &#39;/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/rgl/libs/rgl.so&#39;:
 ##   dlopen(/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/rgl/libs/rgl.so, 0x0006): Library not loaded: /opt/X11/lib/libGLU.1.dylib
 ##   Referenced from: &lt;8803AC61-C267-38FC-8AD6-DF038D4818F4&gt; /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/rgl/libs/rgl.so
-##   Reason: tried: &#39;/opt/X11/lib/libGLU.1.dylib&#39; (no such file), &#39;/System/Volumes/Preboot/Cryptexes/OS/opt/X11/lib/libGLU.1.dylib&#39; (no such file), &#39;/opt/X11/lib/libGLU.1.dylib&#39; (no such file), &#39;/Library/Frameworks/R.framework/Resources/lib/libGLU.1.dylib&#39; (no such file), &#39;/Library/Java/JavaVirtualMachines/jdk-11.0.18+10/Contents/Home/lib/server/libGLU.1.dylib&#39; (no such file), &#39;/var/folders/2f/y1cnkyb52r39t3pmy4_bgdc80000gp/T/rstudio-fallback-library-path-996702574/libGLU.1.dylib&#39; (no such file)
-## Error in install.packages : Updating loaded packages</code></pre>
+##   Reason: tried: &#39;/opt/X11/lib/libGLU.1.dylib&#39; (no such file), &#39;/System/Volumes/Preboot/Cryptexes/OS/opt/X11/lib/libGLU.1.dylib&#39; (no such file), &#39;/opt/X11/lib/libGLU.1.dylib&#39; (no such file), &#39;/Library/Frameworks/R.framework/Resources/lib/libGLU.1.dylib&#39; (no such file), &#39;/Library/Java/JavaVirtualMachines/jdk-11.0.18+10/Contents/Home/lib/server/libGLU.1.dylib&#39; (no such file), &#39;/var/folders/2f/y1cnkyb52r39t3pmy4_bgdc80000gp/T/rstudio-fallback-library-path-2091090653/libGLU.1.dylib&#39; (no such file)</code></pre>
+<pre><code>## Warning:     Loading rgl&#39;s DLL failed. 
+##  This build of rgl depends on XQuartz, which failed to load.
+##  See the discussion in https://stackoverflow.com/a/66127391/2554330</code></pre>
+<pre><code>## Warning: Trying without OpenGL...</code></pre>
+<pre><code>## Error in install.packages : Updating loaded packages</code></pre>
 <pre><code>##  Checking for RColorBrewer ...</code></pre>
 <pre><code>##  Checking for corrplot ...</code></pre>
 <pre><code>##  Checking for ClusterR ...</code></pre>
@@ -397,10 +396,10 @@ Bioinformatics.ca<br>
 <pre><code>##  Checking for mlbench ...</code></pre>
 <pre><code>##  Checking for plotrix ...</code></pre>
 <pre><code>##  Checking for factoextra ...</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="index.html#cb16-1" tabindex="-1"></a>biocPkg <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;edgeR&quot;</span>,<span class="st">&quot;bladderbatch&quot;</span>,<span class="st">&quot;airway&quot;</span>)</span>
-<span id="cb16-2"><a href="index.html#cb16-2" tabindex="-1"></a><span class="cf">for</span> (cur <span class="cf">in</span> biocPkg){</span>
-<span id="cb16-3"><a href="index.html#cb16-3" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(cur, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) BiocManager<span class="sc">::</span><span class="fu">install</span>(cur)</span>
-<span id="cb16-4"><a href="index.html#cb16-4" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="index.html#cb18-1" tabindex="-1"></a>biocPkg <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;edgeR&quot;</span>,<span class="st">&quot;bladderbatch&quot;</span>,<span class="st">&quot;airway&quot;</span>)</span>
+<span id="cb18-2"><a href="index.html#cb18-2" tabindex="-1"></a><span class="cf">for</span> (cur <span class="cf">in</span> biocPkg){</span>
+<span id="cb18-3"><a href="index.html#cb18-3" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(cur, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) BiocManager<span class="sc">::</span><span class="fu">install</span>(cur)</span>
+<span id="cb18-4"><a href="index.html#cb18-4" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="download-example-data" class="section level3 unnumbered hasAnchor">
 <h3>Download example data<a href="index.html#download-example-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>

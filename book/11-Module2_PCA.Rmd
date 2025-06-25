@@ -1,5 +1,8 @@
 # Module 2: Dimensionality reduction {-}
 
+<iframe src="https://docs.google.com/presentation/d/1Q5-takWa8ZjpTjzBNZ8i78OYkXjN028E/preview" width="640" height="480" allow="autoplay"></iframe>  
+
+
 The goal of this lab is to learn how to reduce the dimension of your dataset.
 
 We will learn three different methods commonly used for dimension reduction:
