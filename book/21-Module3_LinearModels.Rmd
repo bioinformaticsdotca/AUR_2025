@@ -1,7 +1,5 @@
 # Module 3: Generalized Linear Models {-}
 
-<iframe src="https://docs.google.com/presentation/d/1cdmhQ6Qm5d-S1sTbih5a0ZHHzuTTwOSA/preview" width="640" height="480" allow="autoplay"></iframe>  
-
  In this module we're going to cover:
 
  * Reading data from files and evaluating missingness

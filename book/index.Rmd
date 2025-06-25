@@ -102,9 +102,16 @@ for (cur in biocPkg){
 2. Move the zip file to your working directory (usually under "/Users/yourname"). 
 3. Unzip the file. You should see a folder with 4 files in it.
 
-# Lecture slides {-}
+# Lectures {-}
 
 * Module 1: Exploratory Data Analysis and Clustering
+<iframe src="https://docs.google.com/presentation/d/1j8HL_KECMj8kkjoETVF5geTiNuxPyNTT/preview" width="640" height="480" allow="autoplay"></iframe>  
+
 * Module 2: Dimensionality reduction for visualization and analysis
+<iframe src="https://docs.google.com/presentation/d/1Q5-takWa8ZjpTjzBNZ8i78OYkXjN028E/preview" width="640" height="480" allow="autoplay"></iframe>  
+
 * Module 3: Generalized linear models
+<iframe src="https://docs.google.com/presentation/d/1cdmhQ6Qm5d-S1sTbih5a0ZHHzuTTwOSA/preview" width="640" height="480" allow="autoplay"></iframe>  
+
 * Module 4: Multiple hypothesis testing with RNA-seq differential expression analysis
+<iframe src="https://docs.google.com/presentation/d/1NKcPfEib_GlGqh8T37BkdeGoEHnCq9E4/preview" width="640" height="480" allow="autoplay"></iframe>  

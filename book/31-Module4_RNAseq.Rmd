@@ -1,7 +1,5 @@
 # Module 4: Finding differentially expressed genes from RNAseq data {-}
 
-<iframe src="https://docs.google.com/presentation/d/1NKcPfEib_GlGqh8T37BkdeGoEHnCq9E4/preview" width="640" height="480" allow="autoplay"></iframe>  
-
 In this exercise, we will use `edgeR` to call differentially-expressed genes. For the example we will use an RNAseq dataset from a treatment-vehicle design. 
 
 If you haven't already done so, install the `airway` dataset:
