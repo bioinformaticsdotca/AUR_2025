@@ -1,4 +1,0 @@
-module-1-exploratory-data-analysis-and-clustering
-module-2-dimensionality-reduction-for-visualization-and-analysis
-module-3-generalized-linear-models
-module-4-multiple-hypothesis-testing-with-rna-seq-differential-expression-analysis
