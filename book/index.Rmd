@@ -104,14 +104,22 @@ for (cur in biocPkg){
 
 # Lectures {-}
 
-* Module 1: Exploratory Data Analysis and Clustering
+## Module 1: Exploratory Data Analysis and Clustering
 <iframe src="https://docs.google.com/presentation/d/1j8HL_KECMj8kkjoETVF5geTiNuxPyNTT/preview" width="640" height="480" allow="autoplay"></iframe>  
 
-* Module 2: Dimensionality reduction for visualization and analysis
+<iframe width="640" height="480" src="https://www.youtube.com/embed/JxqymWtSh9Y?si=wQ4fcqtHcH51Yfs0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Module 2: Dimensionality reduction for visualization and analysis
 <iframe src="https://docs.google.com/presentation/d/1Q5-takWa8ZjpTjzBNZ8i78OYkXjN028E/preview" width="640" height="480" allow="autoplay"></iframe>  
 
-* Module 3: Generalized linear models
+<iframe width="640" height="480" src="https://www.youtube.com/embed/t3JV4EE4ZQE?si=KxlChrVCtQKb9t-x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Module 3: Generalized linear models
 <iframe src="https://docs.google.com/presentation/d/1cdmhQ6Qm5d-S1sTbih5a0ZHHzuTTwOSA/preview" width="640" height="480" allow="autoplay"></iframe>  
 
-* Module 4: Multiple hypothesis testing with RNA-seq differential expression analysis
+Please note that as these slides were a very brief introduction to the lab, no lecture recording was taken.
+
+## Module 4: Multiple hypothesis testing with RNA-seq differential expression analysis
 <iframe src="https://docs.google.com/presentation/d/1NKcPfEib_GlGqh8T37BkdeGoEHnCq9E4/preview" width="640" height="480" allow="autoplay"></iframe>  
+
+<iframe width="640" height="480" src="https://www.youtube.com/embed/61FUKMbvcCo?si=jO3x4Km9J5dwD0qo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
