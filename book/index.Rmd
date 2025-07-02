@@ -18,6 +18,9 @@ description: "Principles of exploratory data analysis, RNAseq differential expre
 # Welcome {-}
 Welcome to Analysis Using R 2025.
 
+## Class Photo {-}
+<iframe src="https://drive.google.com/file/d/11bP30oP7AMNJOIXmsCh1mHipK2Qd7a9j/preview" width="640" height="480" allow="autoplay"></iframe>
+
 ## Schedule {-}
 | Time (EDT) |                                        Day 1                                       | Time (EDT) |                               Day 2                              |
 |:--------------:|:-----------------------------------------------------------------------------------:|:--------------:|:-----------------------------------------------------------------:|
