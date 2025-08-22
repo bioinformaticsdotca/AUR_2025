@@ -1,5 +1,8 @@
 bookdown::gitbook:
   css: style.css
+  includes:                             # <<< ADDED/ENSURED THIS SECTION
+    in_header:                           # <<<
+      - _bioschemas.html
   config:
     toc:
       before: |
